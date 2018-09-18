@@ -49,7 +49,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import com.sub_zero.ipostcard.helpers.Models.PostcardModel;
 
 /**
  * Created by Oleksii Shliama (https://github.com/shliama).
@@ -114,7 +113,6 @@ public class UCropActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ucrop_activity_photobox);
-        appstate = ((PostcardModel)getApplicationContext());
         final Intent intent = getIntent();
 
         setupViews(intent);
@@ -618,10 +616,6 @@ public class UCropActivity extends AppCompatActivity {
 
             @Override
             public void onBitmapCropped(@NonNull Uri resultUri, int offsetX, int offsetY, int imageWidth, int imageHeight) {
-                //!!!!!!!TEST!!!!!!!!!!!!
-                
-                appstate.setImageFrontURI_one_orig(inputUri);
-                //!!!!!!!TEST!!!!!!!!!!!!
                 setResultUri(resultUri, mGestureCropImageView.getTargetAspectRatio(), offsetX, offsetY, imageWidth, imageHeight);
                 finish();
             }
